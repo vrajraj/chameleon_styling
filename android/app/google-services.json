@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "641743357532",
+    "firebase_url": "https://chameleonstyling-62396.firebaseio.com",
+    "project_id": "chameleonstyling-62396",
+    "storage_bucket": "chameleonstyling-62396.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641743357532:android:387ba1baf838d940bd8899",
+        "android_client_info": {
+          "package_name": "com.example.chameleon_styling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641743357532-c6eo0cek2667m069rab291u67m1hbif3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS3LsLDV61p44eB_25GLWX3lQ-qPntcsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641743357532-c6eo0cek2667m069rab291u67m1hbif3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
