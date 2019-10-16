@@ -16,12 +16,12 @@ class _haircareState extends State<haircare> {
           shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(15.0),side: BorderSide(color: Colors.yellow[300],width:2.0) ),
 
           backgroundColor: Colors.brown[500],
-          title: Text('Skin Care',style: TextStyle(color: Colors.white, fontSize: 35.0, fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),),
+          title: Text('Hair Care',style: TextStyle(color: Colors.white, fontSize: 35.0, fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),),
           iconTheme: IconThemeData(color: Colors.black,size: 40,opacity: 20)
       ),
       body:
       StreamBuilder<QuerySnapshot>(
-          stream: Firestore.instance.collection('Haircare').snapshots(),
+          stream: Firestore.instance.collection('Bride').snapshots(),
           // ignore: missing_return
           builder: (context,snapshot) {
             print("Data : ${snapshot.data}");
@@ -43,7 +43,7 @@ class _haircareState extends State<haircare> {
                           side: BorderSide(
                               color: Colors.yellow[300], width: 5)),
                       margin: EdgeInsets.only(
-                          bottom: 150, left: 10, right: 10, top: 10),
+                           left: 10, right: 10, top: 10),
                       elevation: 20,
                       clipBehavior: Clip.hardEdge,
                       child: Container(
@@ -80,26 +80,29 @@ class _haircareState extends State<haircare> {
                                     fontFamily: 'Lobster',
                                     letterSpacing: 2),),
                               Padding(padding: EdgeInsets.all(15)),
-                              Row(children: <Widget>[Padding(
-                                  padding: EdgeInsets.only(left: 5)),
-                                Text('Varies | ', style: TextStyle(
-                                    color: Colors.yellow[300],
-                                    fontSize: 30,
-                                    fontFamily: 'Cinzel'),),
-                                Text('${mypost['Varies']}', style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontFamily: 'Cinzel'),),
-                                Padding(padding: EdgeInsets.only(left: 120)),
-                                Text('Price | ', style: TextStyle(
-                                    color: Colors.yellow[300],
-                                    fontSize: 30,
-                                    fontFamily: 'Cinzel'),),
-                                Text('${mypost['Cost']}', style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontFamily: 'Cinzel'),),
-                              ],),
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5)),
+                                  Text('Varies | ', style: TextStyle(
+                                      color: Colors.yellow[300],
+                                      fontSize: 30,
+                                      fontFamily: 'Cinzel'),),
+                                  Text('${mypost['Varies']}', style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 30,
+                                      fontFamily: 'Cinzel'),),
+                                  Padding(padding: EdgeInsets.only(left: 90)),
+                                  Text('Price | ', style: TextStyle(
+                                      color: Colors.yellow[300],
+                                      fontSize: 30,
+                                      fontFamily: 'Cinzel'),),
+                                  Text('${mypost['Cost']}', style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 30,
+                                      fontFamily: 'Cinzel'),),
+                                ],
+                              ),
                               Padding(padding: EdgeInsets.all(10)),
                             ],
                           )),

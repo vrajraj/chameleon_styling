@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import './bride.dart';
-import './haircare.dart';
-import './skin care.dart';
-import './spa.dart';
+import 'bride.dart';
+import 'haircare.dart';
+import 'skin care.dart';
+import 'spa.dart';
+import 'package:chameleonstyling/wallpaper.dart';
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -47,9 +48,9 @@ class _HomeState extends State<Home> {
           new ListView(
             children: <Widget>[
               new ListTile(
-                title: Text("Appointment", style: new TextStyle(fontSize: 16,color: Colors.white ),),
-                trailing: new Icon(Icons.local_hospital),
-                onTap: ()=> Navigator.pushReplacement(context,new  MaterialPageRoute(builder: (context) => bride()),),
+                title: Text("Gallery", style: new TextStyle(fontSize: 20,color: Colors.black ),),
+                trailing: new Icon(Icons.photo,color: Colors.green,size: 20,),
+                onTap: ()=> Navigator.pushReplacement(context,new  MaterialPageRoute(builder: (context) => WallScreen()),),
               ),
               Divider(
                 color: Colors.white,

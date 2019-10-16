@@ -16,7 +16,7 @@ class _spaState extends State<spa> {
           shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(15.0),side: BorderSide(color: Colors.yellow[300],width:2.0) ),
 
           backgroundColor: Colors.brown[500],
-          title: Text('Skin Care',style: TextStyle(color: Colors.white, fontSize: 35.0, fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),),
+          title: Text('Hands & Feet And Spa',style: TextStyle(color: Colors.white, fontSize: 35.0, fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),),
           iconTheme: IconThemeData(color: Colors.black,size: 40,opacity: 20)
       ),
       body:
