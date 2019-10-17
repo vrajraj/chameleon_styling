@@ -9,7 +9,7 @@ class _MakeupState extends State<Makeup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.pink[900],
       body:  StreamBuilder<QuerySnapshot>(
           stream: Firestore.instance.collection('Bride party makeup').snapshots(),
           // ignore: missing_return
@@ -27,10 +27,10 @@ class _MakeupState extends State<Makeup> {
                   itemBuilder: (context, index) {
                     DocumentSnapshot mypost = snapshot.data.documents[index];
                     return Card(
-                      color: Colors.black,
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                         // side: BorderSide(color: Colors.yellow[300], width: 5)
+                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),topRight: Radius.circular(40)),
+                         // side: BorderSide(color: Colors.yellow[30, width: 5)
                       ),
                       margin: EdgeInsets.only(
                           left: 10, right: 10, top: 10),
@@ -44,13 +44,13 @@ class _MakeupState extends State<Makeup> {
                       children: <Widget>[
                         Padding(padding: EdgeInsets.only(top: 20)),
                         Text('${mypost['Title']}',textAlign: TextAlign.start, style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.pink,
                             fontSize:30,
 
                            // fontFamily: 'Cinzel'
                         ),),
                         Padding(padding: EdgeInsets.all(15)),
-                        Divider(color: Colors.yellow[300],
+                        Divider(color: Colors.pink,
                           thickness: 1.5,
                           height: 10,
                           indent: 25,
@@ -59,16 +59,19 @@ class _MakeupState extends State<Makeup> {
                         Row(children: <Widget>[
                                   Padding(padding: EdgeInsets.only(left:5)),
                                   Text('Price |', style: TextStyle(
-                                      color: Colors.yellow[300],
+                                      color: Colors.pink,
                                       fontSize:30,
-                                      fontFamily: 'Cinzel'),),
+                                    //  fontFamily: 'Cinzel'
+                                  ),),
                           Padding(padding: EdgeInsets.all(5)),
                                   Text('${mypost['Cost']}', style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
                                       fontSize:30,
                                       fontFamily: 'Cinzel'),),
                                 ],
                               ),
+                        Padding(padding: EdgeInsets.all(10)),
                       ],
                     )),
                     );

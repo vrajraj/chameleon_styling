@@ -1,4 +1,5 @@
 import 'package:flutter/gestures.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'bride.dart';
 import 'haircare.dart';
@@ -13,57 +14,74 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+//    Widget imageSlider = new Container(
+//      height: 200.0,
+//      child:new Carousel(
+//        boxFit: BoxFit.fill,
+//        images: [
+//          AssetImage('assets/ad1.png'),
+//          AssetImage('assets/ad2.jpg'),
+//          AssetImage('assets/ad3.jpg'),
+//          AssetImage('assets/ad4.png'),
+//
+//        ],
+//        autoplay: true,
+//        showIndicator: false,
+//        autoplayDuration: Duration(seconds: 12),
+//
+//      ),
+//    );
     return Scaffold(
       backgroundColor:Colors.white70,
                    //Appbar
       appBar: AppBar(
         elevation:20 ,
-        shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(15.0),side: BorderSide(color: Colors.yellow[300],width:2.0) ),
-        iconTheme: IconThemeData(color: Colors.black,size: 80),
-       backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(10),bottomLeft: Radius.circular(10)),
+            //side: BorderSide(color: Colors.yellow[300],width:2.0)
+        ),
+        iconTheme: IconThemeData(color: Colors.white,size: 80),
+       backgroundColor: Colors.pink[900],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('C',
-                style: TextStyle(color: Colors.black,fontSize: 40.0,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'
+                style: TextStyle(color: Colors.white,fontSize: 40.0,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'
               ),),
               Text('hameleon',
-                style: TextStyle(color: Colors.black,fontSize: 26.0,fontWeight: FontWeight.w400,letterSpacing: 2,
+                style: TextStyle(color: Colors.white,fontSize: 26.0,fontWeight: FontWeight.w400,letterSpacing: 2,
               ),),
               Text('S',
-                style: TextStyle(color: Colors.black,fontSize: 40.0,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'
+                style: TextStyle(color: Colors.white,fontSize: 40.0,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'
               ),),
               Text('tyling',
-                style: TextStyle(color: Colors.black,fontSize: 26.0,fontWeight: FontWeight.w400,letterSpacing:2),),
+                style: TextStyle(color: Colors.white,fontSize: 26.0,fontWeight: FontWeight.w400,letterSpacing:2),),
             ],
           ),
          actions: <Widget>[
-           IconButton(icon: Icon(Icons.search), color: Colors.black,iconSize: 40,onPressed: ()=>{})
+           IconButton(icon: Icon(Icons.photo), color: Colors.white,iconSize: 40,
+             onPressed: ()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => WallScreen()),),),
+
+           IconButton(icon: Icon(Icons.search), color: Colors.white,iconSize: 40,onPressed: ()=>{})
          ],
 
         ),
         drawer:
         new Drawer(
           child:
-          new ListView(
-            children: <Widget>[
-              new ListTile(
-                title: Text("Gallery", style: new TextStyle(fontSize: 20,color: Colors.black ),),
-                trailing: new Icon(Icons.photo,color: Colors.green,size: 20,),
-                onTap: ()=> Navigator.pushReplacement(context,new  MaterialPageRoute(builder: (context) => WallScreen()),),
-              ),
-              Divider(
-                color: Colors.white,
-                height:50.0,
-              ),
-              new ListTile(
-                title: Text("Blogs", style: new TextStyle(fontSize: 16,color: Colors.white ),),
-                trailing: new Icon(Icons.assignment),
-                onTap: ()=> Navigator.pushReplacement(context,new  MaterialPageRoute(builder: (context) => new bride())),
-              ),
-              Divider(color: Colors.white,
-                height:50.0,),
-            ],
+          Container(
+            color: Colors.white30,
+            child: new ListView(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 15),
+                ),
+                new ListTile(
+                  title: Text("Gallery", style: new TextStyle(fontSize: 35,color: Colors.pink ,fontWeight: FontWeight.w400, ),),
+                  trailing: new Icon(Icons.photo,color: Colors.pink,size:35,),
+                  onTap: ()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => WallScreen()),),
+                ),
+              ],
+            ),
           ),
         ),
                                       //GridView
@@ -84,90 +102,176 @@ class _HomeState extends State<Home> {
               child: InkWell(onTap: ()=>{},child: Image(image: AssetImage('assets/menuPics/haircut.jpg'),fit: BoxFit.cover,))
           ),*/
           Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.yellow[300],width:5)),
+            color: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+              //  side: BorderSide(color: Colors.yellow[300],width:5)
+            ),
             clipBehavior: Clip.hardEdge,
-            child: Container(
+            child: Scaffold(
+              body: Column(
 
-                decoration: BoxDecoration(image:DecorationImage(
-                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
-                  image: AssetImage('assets/menuPics/haircut.jpg'),fit: BoxFit.cover,
-                )),
-                child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new haircare()))},
-                    child: Column(
+                children: <Widget>[
+                  Container(
+                      height:320,
+                      width: 350,
+                      decoration: BoxDecoration(image:DecorationImage(
+                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
+                        image: AssetImage('assets/menuPics/haircut.jpg'),fit: BoxFit.cover,
+                      )),
+                      child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new haircare()))},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                            ],
+                          )
+                      )
+                  ),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    child:   Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('HAIR CARE',style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.w600,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
-                        Padding(padding: EdgeInsets.all(20)),
-                        Text('EXPLORE',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w900,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
-                      ],
-                    )
-                )
+                        Text('HAIR CARE',style: TextStyle(color: Colors.black,fontSize:28,fontWeight: FontWeight.w600,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
+                   // Padding(padding: EdgeInsets.all(20)),
+                  //  Text('EXPLORE',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w900,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
+
+                    ],
+                    ),
+                                        )
+                ],
+              ),
             ),
           ),
           Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.yellow[300],width:5)),
+            color: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+              //  side: BorderSide(color: Colors.yellow[300],width:5)
+            ),
             clipBehavior: Clip.hardEdge,
-            child: Container(
-                decoration: BoxDecoration(image:DecorationImage(
-                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
-                  image: AssetImage('assets/menuPics/facial.jpeg'),fit: BoxFit.cover,
-                )),
-                child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new skincare()))},
-                    child: Column(
+            child: Scaffold(
+              body: Column(
+
+                children: <Widget>[
+                  Container(
+                      height:320,
+                      width: 350,
+                      decoration: BoxDecoration(image:DecorationImage(
+                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
+                        image: AssetImage('assets/menuPics/facial.jpeg'),fit: BoxFit.cover,
+                      )),
+                      child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new  skincare()))},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                            ],
+                          )
+                      )
+                  ),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    child:   Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('SKIN CARE',style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.w700,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
-                        Padding(padding: EdgeInsets.all(20)),
-                        Text('EXPLORE',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w700,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
+                        Text('SKIN CARE',style: TextStyle(color: Colors.black,fontSize:28,fontWeight: FontWeight.w600,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
+                        // Padding(padding: EdgeInsets.all(20)),
+                      //  Text('EXPLORE',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w900,fontFamily:'Cinzel'),textAlign: TextAlign.center,),
+
                       ],
-                    )
-                )
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.yellow[300],width:5)),
+            color: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+              //  side: BorderSide(color: Colors.yellow[300],width:5)
+            ),
             clipBehavior: Clip.hardEdge,
-            child: Container(
-                decoration: BoxDecoration(image:DecorationImage(
-                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
-                  image: AssetImage('assets/menuPics/spa.jpg'),fit: BoxFit.cover,
-                )),
-                child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new spa()))},
-                    child: Column(
+            child: Scaffold(
+              body: Column(
+
+                children: <Widget>[
+                  Container(
+                      height:320,
+                      width: 350,
+                      decoration: BoxDecoration(image:DecorationImage(
+                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
+                        image: AssetImage('assets/menuPics/spa.jpg'),fit: BoxFit.cover,
+                      )),
+                      child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new  spa()))},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                            ],
+                          )
+                      )
+                  ),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    child:   Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('HANDS & FEET',style: TextStyle(color: Colors.white,fontSize: 35,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                        Text('AND SPA',style: TextStyle(color: Colors.white,fontSize: 35,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                        Padding(padding: EdgeInsets.all(40)),
-                        Text('EXPLORE',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+                        Text('HANDS & FEET AND SPA',style: TextStyle(color: Colors.black,fontSize:25,fontWeight: FontWeight.w600,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+                       // Text('AND SPA',style: TextStyle(color: Colors.black,fontSize:10,fontWeight: FontWeight.w600,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+                   //     Text('EXPLORE',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w900,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+
                       ],
-                    )
-                )
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Card(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+              //  side: BorderSide(color: Colors.yellow[300],width:5)
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: Scaffold(
+              body: Column(
+
+                children: <Widget>[
+                  Container(
+                      height:320,
+                      width: 350,
+                      decoration: BoxDecoration(image:DecorationImage(
+                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
+                        image: AssetImage('assets/menuPics/bride.jpg'),fit: BoxFit.cover,
+                      )),
+                      child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new bride()))},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                            ],
+                          )
+                      )
+                  ),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    child:   Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text('BRIDE-GROOM AND PARTY MAKEUP',style: TextStyle(color: Colors.black,fontSize:25,fontWeight: FontWeight.w600,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+                    //    Text('AND',style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+                      //  Text('PARTY MAKEUP',style: TextStyle(color: Colors.black,fontSize:20,fontWeight: FontWeight.w600,fontFamily: 'Cinzel'),textAlign: TextAlign.center,)
+                       // Text('EXPLORE',style: TextStyle(color: Colors.black,fontSize:18.9,fontWeight: FontWeight.w900,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
+
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
 
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.yellow[300],width:5)),
-            clipBehavior: Clip.hardEdge,
-            child: Container(
-                decoration: BoxDecoration(image:DecorationImage(
-                  colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
-                  image: AssetImage('assets/menuPics/bride.jpg'),fit: BoxFit.cover,
-                )),
-                child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new bride()))},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text('BRIDE-GROOM',style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                        Text('AND',style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                        Text('PARTY MAKEUP',style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.w500,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                        Padding(padding: EdgeInsets.all(20)),
-                        Text('EXPLORE',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),textAlign: TextAlign.center,),
-                      ],
-                    )
-                )
-            ),
-          ),
+
           /*Container(
               child: InkWell(onTap: ()=>{},child: Image(image: AssetImage('assets/menuPics/bride.jpg'),fit: BoxFit.cover,))
           ),

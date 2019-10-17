@@ -16,7 +16,7 @@ class _WallScreenState extends State<WallScreen> {
 
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> wallpapersList;
-  final CollectionReference collectionReference = Firestore.instance.collection("wallpapers");
+  final CollectionReference collectionReference = Firestore.instance.collection("wallpapers") ;
 
 
 
@@ -24,7 +24,7 @@ class _WallScreenState extends State<WallScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    subscription = collectionReference.snapshots().listen((datasnapshot) {
+    subscription = collectionReference.orderBy('url', descending: true).snapshots().listen((datasnapshot) {
       setState(() {
         wallpapersList = datasnapshot.documents;
       });
@@ -42,8 +42,14 @@ class _WallScreenState extends State<WallScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      //backgroundColor: Colors.pink,
         appBar: new AppBar(
-          title: new Text("Wallfy"),
+          iconTheme: IconThemeData(color: Colors.pink),
+          bottomOpacity: 20,
+
+          shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15), ), ),
+          backgroundColor: Colors.white70,
+          title: Center(child: new Text("Gallery Lounge",style: TextStyle(color: Colors.pink,fontSize: 40,fontFamily: 'Cinzel',fontWeight: FontWeight.w600),)),
         ),
         body: wallpapersList != null
             ? new StaggeredGridView.countBuilder(
@@ -72,7 +78,7 @@ class _WallScreenState extends State<WallScreen> {
                   child: new FadeInImage(
                     image: new NetworkImage(imgPath),
                     fit: BoxFit.cover,
-                    placeholder: new AssetImage("assets/wallfy.png"),
+                    placeholder: new AssetImage("assets/logo/Logo Chameleon.png"),
                   ),
                 ),
               ),

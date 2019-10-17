@@ -11,16 +11,14 @@ class _brideState extends State<bride> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pinkAccent,
+      backgroundColor: Colors.white70,
       appBar: AppBar(
-          actionsIconTheme: IconThemeData(color: Colors.yellow[300]),
-          elevation: 20,
-          bottomOpacity: 20,
-          shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(15.0),side: BorderSide(color: Colors.yellow[300],width: 2) ),
-
-          backgroundColor: Colors.black,
-          title: Text('Bride-Groom And Party MakeUp',style: TextStyle(color: Colors.pinkAccent, fontSize: 35.0, fontWeight: FontWeight.w400,fontFamily: 'Cinzel'),),
-          iconTheme: IconThemeData(color: Colors.yellow[300],size: 40,opacity: 20)
+          shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15) ) ),
+          backgroundColor: Colors.pink[900],
+          title: Text('Bride-Groom And Party MakeUp',style: TextStyle(color: Colors.white, fontSize: 35.0, fontWeight: FontWeight.w400,
+             fontFamily: 'Nunito'
+          ),),
+          iconTheme: IconThemeData(color: Colors.white,size:90)
       ),
       body:
 
@@ -47,13 +45,13 @@ class _brideState extends State<bride> {
                       itemBuilder: (context, index) {
                         DocumentSnapshot mypost = snapshot.data.documents[index];
                         return Card(
-                          color: Colors.black,
+                          color: Colors.white,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                             side: BorderSide(color: Colors.yellow[300], width: 2)
+                              borderRadius: BorderRadius.all(Radius.circular(10) ),
+                            // side: BorderSide(color: Colors.yellow[300], width: 2)
                           ),
                           margin: EdgeInsets.only(
-                               left: 10, right: 10, top: 10),
+                               left: 20, right: 20, top: 20),
                           elevation: 20,
                           clipBehavior: Clip.hardEdge,
                           child: Container(
@@ -66,12 +64,34 @@ class _brideState extends State<bride> {
                                 // mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Padding(padding: EdgeInsets.all(20)),
-                                  Text('${mypost['Title']}', style: TextStyle(
-                                      color: Colors.yellow[300],
-                                      fontSize: 50,
-                                      fontFamily: 'Cinzel'),),
+                                  Card(
+                                    color: Colors.pink,
+                                    clipBehavior: Clip.hardEdge,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all( Radius.circular(40)),
+                                      // side: BorderSide(color: Colors.yellow[300], width: 2)
+                                    ),
+
+                                    child: Container(
+
+                                      height: 80,
+                                      width: 450,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text('${mypost['Title']}', style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 32,
+                                              fontFamily: 'Raleway'
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                   Padding(padding: EdgeInsets.only(top: 25,)),
-                                  Divider(color: Colors.yellow[300],
+                                  Divider(color: Colors.pink[900],
                                     thickness: 1.5,
                                     height: 10,
                                     indent: 25,
@@ -80,22 +100,26 @@ class _brideState extends State<bride> {
                                   // Text('Description: "',style: TextStyle(color: Colors.white,fontSize:30,fontFamily:'Lobster'),),
                                   Text('${mypost['Description']}',
                                     textAlign: TextAlign.left,
-                                    style: TextStyle(color: Colors.white,
-                                        fontWeight: FontWeight.w100,
-                                        fontSize:25,
-                                        fontFamily: 'Lobster',
-                                        letterSpacing: 2),),
+                                    style: TextStyle(color: Colors.grey[700],
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:27.5,
+                                        fontStyle: FontStyle.italic,
+                                        fontFamily: 'Raleway',
+                                        letterSpacing: 2
+                                    ),),
                                   Padding(padding: EdgeInsets.all(15)),
                                   Row(children: <Widget>[
                                     Padding(padding: EdgeInsets.only(left: 5)),
                                     Text('Varies | ', style: TextStyle(
-                                        color: Colors.yellow[300],
-                                        fontSize: 30,
-                                        fontFamily: 'Cinzel'),),
+                                        color: Colors.pink,
+                                        fontSize:30,
+                                       // fontFamily: 'Cinzel'
+                                    ),),
                                     Text('${mypost['Varies']}', style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 30,
-                                        fontFamily: 'Cinzel'),),
+                                        color: Colors.orange,
+                                        fontSize:30,
+                                    //    fontFamily: 'Cinzel'
+                                    ),),
                                   //  Padding(padding: EdgeInsets.only(left: 60)),
 
                                   ],),
@@ -104,18 +128,20 @@ class _brideState extends State<bride> {
                                     children: <Widget>[
                                      // Padding(padding: EdgeInsets.only(left: 5)),
                                       Text('Price | ', style: TextStyle(
-                                            color: Colors.yellow[300],
-                                            fontSize: 30,
-                                            fontFamily: 'Cinzel'),),
+                                            color: Colors.pink,
+                                            fontSize:30,
+                                      //      fontFamily: 'Cinzel'
+                                      ),),
                                       Expanded(
                                         flex: 2,
                                         child: Text('${mypost['Cost']}', style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize:29,
-                                            fontFamily: 'Cinzel'),),
+                                            color: Colors.green,
+                                            fontSize:30,
+                                        //    fontFamily: 'Cinzel'
+                                        ),),
                                       ),
                                       Expanded(
-                                          child: mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pinkAccent,size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container())
+                                          child: mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pink,size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container())
 
                                     ],
                                   ),
