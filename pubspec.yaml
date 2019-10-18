@@ -51,6 +51,8 @@ flutter:
    - assets/menuPics/facial.jpeg
    - assets/menuPics/haircut.jpg
    - assets/menuPics/spa.jpg
+   - assets/menuPics/gold.jpg
+   - assets/menuPics/offer.jpg
    - assets/logo/Logo Chameleon.png
   #  - images/a_dot_ham.jpeg
 

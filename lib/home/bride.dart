@@ -65,7 +65,7 @@ class _brideState extends State<bride> {
                                 children: <Widget>[
                                   Padding(padding: EdgeInsets.all(20)),
                                   Card(
-                                    color: Colors.pink,
+                                    color: Colors.pink[900],
                                     clipBehavior: Clip.hardEdge,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all( Radius.circular(40)),
@@ -91,7 +91,7 @@ class _brideState extends State<bride> {
                                     ),
                                   ),
                                   Padding(padding: EdgeInsets.only(top: 25,)),
-                                  Divider(color: Colors.pink[900],
+                                  Divider(color: Colors.grey[900],
                                     thickness: 1.5,
                                     height: 10,
                                     indent: 25,
@@ -100,10 +100,10 @@ class _brideState extends State<bride> {
                                   // Text('Description: "',style: TextStyle(color: Colors.white,fontSize:30,fontFamily:'Lobster'),),
                                   Text('${mypost['Description']}',
                                     textAlign: TextAlign.left,
-                                    style: TextStyle(color: Colors.grey[700],
+                                    style: TextStyle(color: Colors.grey[900],
                                         fontWeight: FontWeight.w600,
-                                        fontSize:27.5,
-                                        fontStyle: FontStyle.italic,
+                                        fontSize:24,
+                                      //  fontStyle: FontStyle.italic,
                                         fontFamily: 'Raleway',
                                         letterSpacing: 2
                                     ),),
@@ -111,13 +111,15 @@ class _brideState extends State<bride> {
                                   Row(children: <Widget>[
                                     Padding(padding: EdgeInsets.only(left: 5)),
                                     Text('Varies | ', style: TextStyle(
-                                        color: Colors.pink,
+                                        color: Colors.grey[900],
                                         fontSize:30,
+                                        fontWeight: FontWeight.w600
                                        // fontFamily: 'Cinzel'
                                     ),),
                                     Text('${mypost['Varies']}', style: TextStyle(
-                                        color: Colors.orange,
+                                        color: Colors.pink[900],
                                         fontSize:30,
+                                        fontWeight: FontWeight.w600
                                     //    fontFamily: 'Cinzel'
                                     ),),
                                   //  Padding(padding: EdgeInsets.only(left: 60)),
@@ -128,20 +130,22 @@ class _brideState extends State<bride> {
                                     children: <Widget>[
                                      // Padding(padding: EdgeInsets.only(left: 5)),
                                       Text('Price | ', style: TextStyle(
-                                            color: Colors.pink,
+                                            color: Colors.grey[900],
                                             fontSize:30,
+                                          fontWeight: FontWeight.w600
                                       //      fontFamily: 'Cinzel'
                                       ),),
                                       Expanded(
                                         flex: 2,
                                         child: Text('${mypost['Cost']}', style: TextStyle(
-                                            color: Colors.green,
+                                            color: Colors.pink[900],
                                             fontSize:30,
+                                        fontWeight: FontWeight.w600
                                         //    fontFamily: 'Cinzel'
                                         ),),
                                       ),
                                       Expanded(
-                                          child: mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pink,size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container())
+                                          child: mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pink[900],size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container())
 
                                     ],
                                   ),

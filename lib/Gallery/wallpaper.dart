@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'fullscreen.dart';
 
 const String testDevice = '';
 
@@ -63,16 +64,7 @@ class _WallScreenState extends State<WallScreen> {
               borderRadius:
               new BorderRadius.all(new Radius.circular(8.0)),
               child: new InkWell(
-                onTap: () {
-
-
-//                  Navigator.push(
-//                      context,
-//                      new MaterialPageRoute(
-//                          builder: (context) =>
-//                          //new FullScreenImagePage(imgPath))
-//                      ) );
-                },
+                onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new FullScreenImagePage(imgPath)))},
                 child: new Hero(
                   tag: imgPath,
                   child: new FadeInImage(
@@ -84,6 +76,7 @@ class _WallScreenState extends State<WallScreen> {
               ),
             );
           },
+
           staggeredTileBuilder: (i) =>
           new StaggeredTile.count(2, i.isEven ? 2 : 3),
           mainAxisSpacing: 8.0,
