@@ -93,14 +93,20 @@ class _haircareState extends State<haircare> {
                                       fontSize: 30,
                                       fontFamily: 'Cinzel'),),
                                   Padding(padding: EdgeInsets.only(left: 90)),
-                                  Text('Price | ', style: TextStyle(
-                                      color: Colors.yellow[300],
-                                      fontSize: 30,
-                                      fontFamily: 'Cinzel'),),
-                                  Text('${mypost['Cost']}', style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 30,
-                                      fontFamily: 'Cinzel'),),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text('Price | ', style: TextStyle(
+                                        color: Colors.yellow[300],
+                                        fontSize: 30,
+                                        fontFamily: 'Cinzel'),),
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text('${mypost['Cost']}', style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 30,
+                                        fontFamily: 'Cinzel'),),
+                                  ),
                                 ],
                               ),
                               Padding(padding: EdgeInsets.all(10)),

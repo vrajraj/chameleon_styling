@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'fullscreen.dart';
+import 'Gallery/fullscreen.dart';
 
 const String testDevice = '';
 

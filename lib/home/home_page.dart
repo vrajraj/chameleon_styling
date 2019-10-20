@@ -5,7 +5,7 @@ import 'bride.dart';
 import 'haircare.dart';
 import 'skin care.dart';
 import 'spa.dart';
-import 'package:chameleonstyling/Gallery/wallpaper.dart';
+import 'package:chameleonstyling/wallpaper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class Home extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
       ),
     );
     return Scaffold(
-      backgroundColor:Colors.white70,
+      backgroundColor:Colors.pink[900],
                    //Appbar
       appBar: AppBar(
         elevation:20 ,
