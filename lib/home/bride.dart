@@ -144,12 +144,35 @@ class _brideState extends State<bride> {
                                         //    fontFamily: 'Cinzel'
                                         ),),
                                       ),
-                                      Expanded(
-                                          child: mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pink[900],size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container())
+                                     // mypost['CheckList']?IconButton(icon: Icon(Icons.arrow_drop_down_circle,color: Colors.pink[900],size:50), onPressed:()=> Navigator.push(context,new  MaterialPageRoute(builder: (context) => Makeup()))):Container()
 
                                     ],
                                   ),
-                                  Padding(padding: EdgeInsets.all(10))
+                                  Padding(padding: EdgeInsets.all(10)),
+                                  mypost['CheckList']?ExpansionTile(
+                                    title: Text('Types of services'),
+                                    children: <Widget>[
+                                      Container(
+                                          height: 400,
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Makeup())
+//                                      Container(
+//                                        child: Column(
+//                                          mainAxisAlignment: MainAxisAlignment.start,
+//                                          children: <Widget>[
+//                                            Row(
+//                                              children: <Widget>[
+//                                                Text('hello')
+//                                              ],
+//
+//
+//                                            ),
+//                                          ],
+//                                        ),
+//                                      )
+                                    ],
+                                  ):Container(),
+                                  Padding(padding: EdgeInsets.all(10)),
                                 ],
 
                               ),

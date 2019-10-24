@@ -36,15 +36,17 @@ class _HomeState extends State<Home> {
       ),
     );
     return Scaffold(
-      backgroundColor:Colors.pink[900],
+      backgroundColor:Colors.white,
                    //Appbar
       appBar: AppBar(
+
         elevation:20 ,
+
         shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(10),bottomLeft: Radius.circular(10)),
             //side: BorderSide(color: Colors.yellow[300],width:2.0)
         ),
         iconTheme: IconThemeData(color: Colors.white,size: 80),
-       backgroundColor: Colors.pink[900],
+       backgroundColor:Colors.pink,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -211,7 +213,7 @@ class _HomeState extends State<Home> {
                               colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
                               image: AssetImage('assets/menuPics/spa.jpg'),fit: BoxFit.cover,
                             )),
-                            child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new  spa()))},
+                            child: InkWell(onTap: ()=>{Navigator.push(context,new MaterialPageRoute(builder: (context) => new  Spa()))},
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
