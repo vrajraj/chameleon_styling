@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,6 +15,29 @@ class Spa extends StatefulWidget {
 }
 
 class _SpaState extends State<Spa> {
+  int currentpage=0;
+  PageController _pageController = PageController(
+    initialPage: 0,viewportFraction: 0.8
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (currentpage < 2) {
+        currentpage++;
+      } else {
+        currentpage = 0;
+      }
+
+      _pageController.animateToPage(
+        currentpage,
+        duration: Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+        
+      );
+    });
+  }
 
 
   @override
@@ -86,6 +111,8 @@ class _SpaState extends State<Spa> {
                         else{
                           return
                             PageView.builder(
+
+                              controller: _pageController,
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context, index) {
                       DocumentSnapshot mypost = snapshot.data.documents[index];
