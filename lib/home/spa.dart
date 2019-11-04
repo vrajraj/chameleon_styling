@@ -23,7 +23,7 @@ class _SpaState extends State<Spa> {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    Timer.periodic(Duration(seconds: 65), (Timer timer) {
       if (currentpage < 2) {
         currentpage++;
       } else {
@@ -34,7 +34,7 @@ class _SpaState extends State<Spa> {
         currentpage,
         duration: Duration(milliseconds: 350),
         curve: Curves.easeIn,
-        
+
       );
     });
   }
@@ -97,6 +97,7 @@ class _SpaState extends State<Spa> {
                      colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.5) ,BlendMode.darken,)
                   )),
                   height:550,
+                  width: MediaQuery.of(context).size.width,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: Firestore.instance.collection('Skincare').snapshots(),
                       // ignore: missing_return
@@ -119,12 +120,13 @@ class _SpaState extends State<Spa> {
                       return
                         SingleChildScrollView(
                           child: Card(
+
                           //color: Colors.transparent,
                             elevation: 10,
                             clipBehavior:Clip.hardEdge,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32),),
-                          margin: EdgeInsets.only(right: 40,left: 40,bottom: 20,top:20),
+                         // margin: EdgeInsets.only(right: 40,left: 40,bottom: 20,top:20),
                           child: Column(
                             children: <Widget>[
                               Container(

@@ -46,9 +46,9 @@ class _MakeupState extends State<Makeup> {
                         Padding(padding: EdgeInsets.only(top: 20)),
                         Text('${mypost['Title']}',textAlign: TextAlign.start, style: TextStyle(
                             color: Colors.black,
-                            fontSize:20,
+                            fontSize:18,
                            fontFamily: 'Raleway',
-                           fontWeight: FontWeight.w600
+                           fontWeight: FontWeight.w900
 
                            // fontFamily: 'Cinzel'
                         ),),
@@ -64,12 +64,13 @@ class _MakeupState extends State<Makeup> {
                                   Text('Price |', style: TextStyle(
                                       color: Colors.black54,
                                       fontSize:20,
+                                      fontWeight: FontWeight.w900,
                                       fontFamily: 'Raleway'
                                   ),),
                           Padding(padding: EdgeInsets.all(5)),
                                   Text('${mypost['Cost']}', style: TextStyle(
                                       color: Colors.pink[400],
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w900,
                                       fontSize:20,
                                       fontFamily: 'Cinzel'),),
                                 ],

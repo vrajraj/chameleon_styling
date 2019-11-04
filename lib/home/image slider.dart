@@ -9,7 +9,7 @@ class Image_slider extends StatefulWidget {
 class _Image_sliderState extends State<Image_slider> {
   int _currentPage=0;
   PageController _pageController = PageController(
-    initialPage: 0,viewportFraction: 0.8
+    initialPage: 0,viewportFraction: 0.9
   );
 
   @override
@@ -26,6 +26,7 @@ class _Image_sliderState extends State<Image_slider> {
         _currentPage,
         duration: Duration(milliseconds: 350),
         curve: Curves.easeIn,
+
       );
     });
   }

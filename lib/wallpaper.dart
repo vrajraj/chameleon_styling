@@ -48,7 +48,7 @@ class _WallScreenState extends State<WallScreen> {
           iconTheme: IconThemeData(color: Colors.pink),
           bottomOpacity: 20,
 
-          shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15), ), ),
+          shape: RoundedRectangleBorder(borderRadius:BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20), ), ),
           backgroundColor: Colors.white70,
           title: Center(child: new Text("Gallery Lounge",style: TextStyle(color: Colors.pink,fontSize: 40,fontFamily: 'Cinzel',fontWeight: FontWeight.w600),)),
         ),
